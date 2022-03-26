@@ -6,7 +6,7 @@ using System.Linq;
 
 public class LevelManager : MonoBehaviour
 {
-    public Scene[] levels;
+    public int[] levels;
 
     public static LevelManager instance;
 
@@ -15,11 +15,11 @@ public class LevelManager : MonoBehaviour
         instance = this;
     }
     
-    public Scene NextLevel(Scene thisScene)
+    public int NextLevel(int thisScene)
     {
         int index = levels.ToList().IndexOf(thisScene);
         if (index == levels.Length - 1)
-            return SceneManager.GetSceneByName("MainMenu");
+            return 0;
         return levels[index + 1];
     }
 }
