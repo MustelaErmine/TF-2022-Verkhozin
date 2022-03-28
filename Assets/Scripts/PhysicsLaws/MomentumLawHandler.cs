@@ -8,7 +8,7 @@ public class MomentumLawHandler : PhysicsLawHandler
 
     bool mode;
     new Rigidbody2D rigidbody2D;
-    Vector2 oldVelocity = Vector2.zero;
+    float oldVelocity = Vector2.zero.magnitude;
 
     void Awake()
     {
@@ -32,12 +32,12 @@ public class MomentumLawHandler : PhysicsLawHandler
     {
         if (mode)
         {
-            if ((oldVelocity - rigidbody2D.velocity).magnitude < 0.1f)
+            if ((oldVelocity - rigidbody2D.velocity.magnitude) < 0.1f)
             {
                 rigidbody2D.velocity *= 0.9f;
                 rigidbody2D.angularVelocity *= 0.9f;
             }
         }
-        oldVelocity = rigidbody2D.velocity;
+        oldVelocity = rigidbody2D.velocity.magnitude;
     }
 }

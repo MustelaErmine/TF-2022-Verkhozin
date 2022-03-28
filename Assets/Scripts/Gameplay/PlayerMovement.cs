@@ -22,7 +22,7 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetMouseButton(0))
+        if (Input.GetMouseButton(0) && !GameplayMenu.pause)
         {
             force += forcePerSecond * Time.deltaTime;
             force = Mathf.Min(1, force);
@@ -34,7 +34,7 @@ public class PlayerMovement : MonoBehaviour
                 angle = angle - 180;
             arrow.eulerAngles = new Vector3(0, 0, angle);
         } 
-        if (Input.GetMouseButtonUp(0))
+        if (Input.GetMouseButtonUp(0) && !GameplayMenu.pause)
         {
             if (force > 0.01f)
             {

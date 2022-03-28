@@ -22,4 +22,11 @@ public class LevelManager : MonoBehaviour
             return 0;
         return levels[index + 1];
     }
+    public void EnterNextLevel(int thisScene)
+    {
+        int to = NextLevel(thisScene);
+        Save.Instance.lastLevel = Mathf.Max(to - 1, Save.Instance.lastLevel);
+        Save.Keep();
+        SceneManager.LoadScene(to);
+    }
 }

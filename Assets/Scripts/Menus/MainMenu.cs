@@ -14,6 +14,7 @@ public class MainMenu : MonoBehaviour
     void Start()
     {
         UpdateButtons();
+        Time.timeScale = 1f;
     }
 
     public void Exit()
@@ -34,6 +35,11 @@ public class MainMenu : MonoBehaviour
         for (int i = 0; i < buttonsOnScreen; i++)
         {
             levelButtons[i].GetComponentInChildren<Text>().text = (startIndex + i).ToString();
+            levelButtons[i].interactable = Save.Instance.lastLevel >= i;
+            if (!levelButtons[i].interactable)
+            {
+                levelButtons[i].GetComponentInChildren<Text>().color = new Color(9,9,9);
+            }
         }
         left.interactable = startIndex != 0;
         right.interactable = startIndex != LevelManager.instance.levels.Length - buttonsOnScreen;

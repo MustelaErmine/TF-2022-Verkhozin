@@ -9,10 +9,10 @@ public class GameplayMenu : MonoBehaviour
     [SerializeField] Button continueBtn;
 
     bool initialized = false;
+    internal static bool pause = false;
 
     private void Start()
     {
-        pausePanel = transform.GetChild(2).GetComponent<Image>();
     }
 
     void Update()
@@ -34,6 +34,7 @@ public class GameplayMenu : MonoBehaviour
                 where.GetComponentInChildren<Text>().text = law.ToString();
                 Toggle toggle = where.GetComponent<Toggle>();
                 toggle.isOn = LawsController.instance.enabledLaws.Contains(law);
+                toggle.interactable = law != Law.Gravity || UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex == 7;
                 toggle.onValueChanged.AddListener((bool on) => {
                     if (on)
                         LawsController.instance.EnableLaw(law);
@@ -58,12 +59,14 @@ public class GameplayMenu : MonoBehaviour
     {
         pausePanel.gameObject.SetActive(true);
         Time.timeScale = 0;
+        pause = true;
     }
 
     public void ClosePause()
     {
         pausePanel.gameObject.SetActive(false);
         Time.timeScale = 1;
+        pause = false;
     }
 
     public void ToMainMenu()

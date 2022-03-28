@@ -123,5 +123,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   searchInChildren: 0
-  normalMaterial: {fileID: 6200000, guid: 7266a882c6b3a1d42be42e38a2f0d450, type: 2}
+  normalMaterial: {fileID: 6200000, guid: 2da7cd8ab4d04164686c81af08e69f77, type: 2}
   noBouncy: {fileID: 6200000, guid: b09eff51c736bb140ad4c12bef254ad4, type: 2}
