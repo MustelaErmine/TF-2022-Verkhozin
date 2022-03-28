@@ -51,7 +51,6 @@ public class PlayerMovement : MonoBehaviour
     void Jump(Vector3 where)
     {
         where.z = 0;
-        print(where);
         rigidbody2D.AddForce(where * forceCoeff, ForceMode2D.Force);
     }
 }

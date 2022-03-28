@@ -1141,7 +1141,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: PHYSICS BY 3
+  m_Text: PHYSICS BY 3 RULES
 --- !u!222 &439681227
 CanvasRenderer:
   m_ObjectHideFlags: 0
